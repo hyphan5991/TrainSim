@@ -3,5 +3,6 @@
  */
 public class GreenlineSim {
     static PQ agenda = new PQ();
+    public int[] editarray;
 
 }
