@@ -1,8 +1,10 @@
+import sun.plugin2.message.GetAppletMessage;
+
 /**
  * Created by timroels on 4/25/16.
  */
 public class Passenger {
-    double arrivaltime;
+
 
     public double getArrivaltime() {
         return arrivaltime;
@@ -36,8 +38,22 @@ public class Passenger {
         this.directionvector = directionvector;
     }
 
-    int arrivalstop;
-    int destinationstop;
-    int directionvector = arrivalstop - destinationstop;
+
+    public double getDestinationtime() {
+        return destinationtime;
+    }
+
+    public void setDestinationtime(double destinationtime) {
+        this.destinationtime = destinationtime;
+    }
+    double arrivaltime;
+    double destinationtime;
+    private int arrivalstop;
+    private int destinationstop;
+    private  int directionvector = arrivalstop - destinationstop;
+
+
+
+    public Passenger(){}
 
 }
