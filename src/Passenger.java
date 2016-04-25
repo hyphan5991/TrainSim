@@ -46,14 +46,24 @@ public class Passenger {
     public void setDestinationtime(double destinationtime) {
         this.destinationtime = destinationtime;
     }
+
+    public double getToaltriptime() {
+        return totaltriptime;
+    }
+
     double arrivaltime;
     double destinationtime;
+    private double totaltriptime = destinationtime - arrivaltime;
     private int arrivalstop;
     private int destinationstop;
     private  int directionvector = arrivalstop - destinationstop;
 
 
+    public Passenger(double arrivalT, int arrivalS, int destinationS){
+        arrivaltime = arrivalT;
+        arrivalstop = arrivalS;
+        destinationstop = destinationS;
+    }
 
-    public Passenger(){}
 
 }
