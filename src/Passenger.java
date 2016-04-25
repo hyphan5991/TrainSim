@@ -48,6 +48,7 @@ public class Passenger {
     }
     double arrivaltime;
     double destinationtime;
+    double totalTime = destinationtime - arrivaltime;
     private int arrivalstop;
     private int destinationstop;
     private  int directionvector = arrivalstop - destinationstop;
