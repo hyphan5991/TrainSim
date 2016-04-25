@@ -7,6 +7,9 @@ public class GreenlineSim {
 
     public static void main(String[] args) {
         System.out.println("hello World");
+        System.out.print("this also worked");
     }
+
+
 
 }
