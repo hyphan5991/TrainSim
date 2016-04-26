@@ -9,7 +9,6 @@ public class GreenlineSim {
 
     public static void main(String[] args) {
         Stop.stopSetUp();
-        TrainArray first = new TrainArray();
         Train firstTrain = new Train(3, 1, 1);
         TrainArray.add(firstTrain);
         TrainEvent firstTrainEvent = new TrainEvent(firstTrain);

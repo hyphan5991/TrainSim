@@ -2,11 +2,8 @@
  * Created by jakesnyder-hansen on 4/25/16.
  */
 public class TrainArray {
-    private static Train[][] trainList;
+    private static Train[][] trainList = new Train[23][2];
 
-    public TrainArray(){
-        trainList = new Train[23][2];
-    }
 
     public static void add(Train n){
         int start = n.getStartLocation();
