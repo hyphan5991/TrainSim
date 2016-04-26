@@ -11,7 +11,7 @@ public class DowntownPassengerMaker implements Event {
 
     @Override
     public void run() {
-        GreenlineSim.agenda.add(new DowntownPassengerMaker(stopNum), 30);
+
         Random stopgenerater = new Random();
         int q = stopgenerater.nextInt(69);
         int destinationstop = -1;
@@ -87,5 +87,6 @@ public class DowntownPassengerMaker implements Event {
         }
         Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), stopNum, destinationstop);
 
+        GreenlineSim.agenda.add(this, 30);
     }
 }

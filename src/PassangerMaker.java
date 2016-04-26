@@ -5,14 +5,11 @@ import java.util.Random;
  */
 public class PassangerMaker implements Event {
     private int arrivalStopNum;
-    public PassangerMaker(){}
-    private int stopNum;
     public PassangerMaker(int stop){
         arrivalStopNum = stop;
     }
 
     public void run(){
-        GreenlineSim.agenda.add(new PassangerMaker(stopNum), 30);
         Random stopgenerater = new Random();
         int q = stopgenerater.nextInt(69);
 
@@ -90,6 +87,7 @@ public class PassangerMaker implements Event {
         Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), arrivalStopNum, destinationstop);
         Stop.addPassenger(p);
 
+        GreenlineSim.agenda.add(this, 30);
 
     }
 }
