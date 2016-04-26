@@ -34,6 +34,13 @@ public class TrainCar {
         else return true;
     }
 
+    public boolean isEmpty(){
+        if (count == 0){
+            return true;
+        }
+        else return false;
+    }
+
     private static int count;
     private static Q1[] trainlength;
 }
