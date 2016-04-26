@@ -13,10 +13,20 @@ public class Train {
 
     }
 
-    public Passenger addPassenger(Passenger n){
-
+    public void addPassenger(Passenger n){
+        for (int i = 0; i < numTrainCars.length || !numTrainCars[i].isFull(); i++){
+            numTrainCars[i].addPassenger(n);
+        }
     }
 
-    private int startLocation;
+    public Passenger removePassenger(Stop n){
+        // Will have to change this probably
+        for (int i = 0; i < numTrainCars.length; i ++){
+            return numTrainCars[i].removePassenger(n);
+        }
+        return null;
+    }
+
+    private int startLocation; // where the train starts after instantiation
     private TrainCar[] numTrainCars;
 }

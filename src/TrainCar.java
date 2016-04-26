@@ -4,7 +4,7 @@
 public class TrainCar {
 
     public TrainCar(){
-        trainlength = new Q1[23];
+        trainlength = new Q1[22];
         for (int i = 0; i <trainlength.length; i++){
             trainlength[i] = new Q1();
         }
