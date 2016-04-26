@@ -22,7 +22,9 @@ public class GreenlineSim {
         TrainArray.add(fourthTrain);
         TrainEvent fourthTrainEvent = new TrainEvent(fourthTrain);
         DowntownPassengerMaker targetField = new DowntownPassengerMaker(1);
+        agenda.add(targetField, 0);
         DowntownPassengerMaker wareHouseD = new DowntownPassengerMaker(2);
+        agenda.add(wareHouseD, 0);
         DowntownPassengerMaker nicolletM = new DowntownPassengerMaker(3);
         DowntownPassengerMaker governmentP = new DowntownPassengerMaker(4);
         DowntownPassengerMaker usBank = new DowntownPassengerMaker(5);
