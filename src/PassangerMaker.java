@@ -4,18 +4,15 @@ import java.util.Random;
  * Created by timroels on 4/25/16.
  */
 public class PassangerMaker implements Event {
-    private int stopNum;
+    private int arrivalStopNum;
     public PassangerMaker(int stop){
-        stopNum = stop;
+        arrivalStopNum = stop;
     }
 
     public void run(){
         Random stopgenerater = new Random();
-        int r = stopgenerater.nextInt(69);
         int q = stopgenerater.nextInt(69);
-        while(r==q){
-            q = stopgenerater.nextInt(69);
-        }
+
         int destinationstop = -1;
 
         if(q<5){
@@ -87,7 +84,7 @@ public class PassangerMaker implements Event {
         if (q<69&&q>=64){
             destinationstop = 23;
         }
-        Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), stopNum, destinationstop);
+        Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), arrivalStopNum, destinationstop);
 
 
     }

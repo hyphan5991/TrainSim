@@ -3,20 +3,26 @@
  */
 public class Stop {
 
-    public Stop(int n){
-        stopNumber = n;
-        east = new Q1();
-        west = new Q1();
+    static Q1[][] stopArray = new Q1[23][2];
+
+    public static void stopSetUp(){
+        for(int i = 0; i < stopArray.length; i++){
+            // 0 equals east 1 equals west
+            stopArray[i][0] = new Q1();
+            stopArray[i][1] = new Q1();
+        }
     }
 
-    public void addPassenger(Passenger n){
+    public static void addPassenger(Passenger n){
+        int stopNum = n.getArrivalstop();
         if (n.getDirectionvector() < 0){
-            west.add(n);
+            stopArray[stopNum - 1][1].add(n);
         }
-        else east.add(n);
+        else stopArray[stopNum - 1][0].add(n);
     }
 
     public Passenger removePassenger(Train n){
+
         if (n.getDirectionVector() < 0){
             return (Passenger) west.remove();
         }
