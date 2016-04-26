@@ -3,62 +3,72 @@
  */
 public class TrainEvent implements Event {
     private Train p;
-    private int baseTime;
+    private double baseTime;
 
     public TrainEvent(Train n){
         p = n;
-        baseTime = 180;
+        baseTime = 3.0;
     }
 
-    public int getBaseTime() {
+    public double getBaseTime() {
         return baseTime;
     }
-
+    public String toString(){
+        return "TrainEvent" + (p.getCurrentLocation() + 1);
+    }
     @Override
     public void run() {
-        int currentStop = p.getCurrentLocation();
-        int trainVector = p.getDirectionVector();
-        int direction;
-        int removecount = 0;
-        int addcount = 0;
-        int time;
+        int removeCount = 0;
+        int addCount = 0;
+        double time;
         if (!p.isEmpty()){
             Passenger removed = p.removePassenger();
             if (removed != null){
                 removed.setDestinationtime(GreenlineSim.agenda.getCurrentTime());
-                GreenlineSim.passengerArray.add(removed);
+                removed.setTotaltriptime(removed.getDestinationtime() - removed.getArrivaltime());
+                removed.setArrived("Y");
+                removeCount++;
             }
-            removecount++;
             while (removed != null){
                 removed = p.removePassenger();
                 if (removed != null){
                     removed.setDestinationtime(GreenlineSim.agenda.getCurrentTime());
-                    GreenlineSim.passengerArray.add(removed);
-                    removecount++;
+                    removed.setTotaltriptime(removed.getDestinationtime() - removed.getArrivaltime());
+                    removed.setArrived("Y");
+                    removeCount++;
                 }
             }
         }
-        if (trainVector < 0){
-           direction = 1;
+
+        Passenger added = Stop.removePassenger(p);
+        if (added != null){
+            p.addPassenger(added);
+            addCount++;
         }
-        else direction = 0;
-        if (Stop.stopArray[currentStop][direction].length() > 0){
-            while (Stop.stopArray[currentStop][direction].length() > 0){
-                p.addPassenger((Passenger) Stop.stopArray[currentStop][direction].remove());
-                addcount++;
+        while (added != null) {
+            added = Stop.removePassenger(p);
+            if (added != null) {
+                p.addPassenger(added);
+                addCount++;
             }
         }
-        time = addcount + (2 * removecount);
-        if (TrainArray.move(p)) {
-            TrainArray.move(p);
+
+        time = addCount + (2 * removeCount);
+        boolean flag = TrainArray.move(p);
+        System.out.println(flag);
+        if (flag){
             if (15 > time) {
-                GreenlineSim.agenda.add(this, 15 + baseTime);
+                GreenlineSim.agenda.add(this, (0.25 + 3));
             }
-            else GreenlineSim.agenda.add(this, time + baseTime);
+            else GreenlineSim.agenda.add(this, ((time/60) + 3));
         }
+
         else {
-            TrainEventWait newWait = new TrainEventWait(p, time);
-            GreenlineSim.agenda.add(newWait, newWait.getBaseWait());
+//            TrainEventWait newWait = new TrainEventWait(p, time);
+            if (15 > time) {
+                GreenlineSim.agenda.add(this, (0.1 + 0.25 + 3));
+            }
+            else GreenlineSim.agenda.add(this, (0.1 + (time/60) + 3));
         }
 
 

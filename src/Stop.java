@@ -16,16 +16,18 @@ public class Stop {
     public static void addPassenger(Passenger n){
         int stopNum = n.getArrivalstop();
         if (n.getDirectionvector() < 0){
+            stopArray[stopNum - 1][0].add(n);
+        }
+        else {
             stopArray[stopNum - 1][1].add(n);
         }
-        else stopArray[stopNum - 1][0].add(n);
     }
 
-    public Passenger removePassenger(Train n){
+    public static Passenger removePassenger(Train n){
         int currentStop = n.getCurrentLocation();
         if (n.getDirectionVector() < 0){
-            return (Passenger) stopArray[currentStop - 1][1].remove();
+            return (Passenger) stopArray[currentStop][0].remove();
         }
-        else return (Passenger) stopArray[currentStop - 1][0].remove();
+        else return (Passenger) stopArray[currentStop][1].remove();
     }
 }
