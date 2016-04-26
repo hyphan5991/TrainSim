@@ -4,22 +4,24 @@
 public class TrainEventWait implements Event {
 
     private Train q;
-    private int leftovertime;
-    private int baseWait;
+    private double leftovertime;
+    private double baseWait;
 
-    public TrainEventWait(Train n, int fractionTime){
+    public TrainEventWait(Train n, double fractionTime){
         q = n;
-        baseWait = 5;
+        baseWait = 0.0833;
         leftovertime = fractionTime;
     }
 
     @Override
     public void run() {
+        System.out.println(TrainArray.move(q));
+
         if (TrainArray.move(q)) {
-            TrainArray.move(q);
+
             TrainEvent newTrainEvent = new TrainEvent(q);
             if (15 > leftovertime) {
-                GreenlineSim.agenda.add(newTrainEvent, 15 + newTrainEvent.getBaseTime());
+                GreenlineSim.agenda.add(newTrainEvent, 0.25 + newTrainEvent.getBaseTime());
             }
             else GreenlineSim.agenda.add(this, leftovertime + newTrainEvent.getBaseTime());
 
@@ -29,7 +31,7 @@ public class TrainEventWait implements Event {
         }
     }
 
-    public int getBaseWait() {
+    public double getBaseWait() {
         return baseWait;
     }
 }

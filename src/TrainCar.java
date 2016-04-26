@@ -3,32 +3,34 @@
  */
 public class TrainCar {
 
-    public TrainCar(){
-        trainlength = new Q1[23];
-        for (int i = 0; i <trainlength.length; i++){
-            trainlength[i] = new Q1();
+    public TrainCar(int numCars){
+        seats = new Stack1[23];
+        for (int i = 0; i <seats.length; i++){
+            seats[i] = new Stack1();
         }
+        max = numCars * 50;
         count = 0;
     }
 
-    public static void addPassenger(Passenger n){
-        if (count < 50) {
+    public void addPassenger(Passenger n){
+        if (count < max) {
             int stop = n.getDestinationstop();
-            trainlength[stop - 1].add(n);
+            seats[stop - 1].push(n);
             count++;
         }
     }
 
-    public static Passenger removePassenger(int n){
+    public Passenger removePassenger(int n){
         //Note will have to iterate all the way through
-        if (trainlength[n - 1].length() > 0 ) {
-            return (Passenger) trainlength[n - 1].remove();
+        if (!seats[n].isEmpty()){
+            count --;
+            return (Passenger) seats[n].pop();
         }
         else return null;
     }
 
     public boolean isFull(){
-        if (count < 50){
+        if (count < max){
             return false;
         }
         else return true;
@@ -41,6 +43,7 @@ public class TrainCar {
         else return false;
     }
 
-    private static int count;
-    private static Q1[] trainlength;
+    private int max;
+    private int count;
+    private Stack1[] seats;
 }

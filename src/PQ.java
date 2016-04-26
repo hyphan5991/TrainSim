@@ -2,7 +2,7 @@
  * Created by jakesnyder-hansen on 4/25/16.
  */
 //borrowed from lab
-public class PQ implements PQInterface{
+public class PQ implements PQInterface {
     // constructor
 
     public PQ() {

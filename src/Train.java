@@ -7,44 +7,23 @@ public class Train {
         startLocation = start - 1;
         directionVector = vector;
         currentLocation = start - 1;
-
-
-        numTrainCars = new TrainCar[numCars];
-        for (int i = 0; i < numTrainCars.length; i++){
-            numTrainCars[i] = new TrainCar();
-        }
-
+        trainCar = new TrainCar(numCars);
     }
 
     public boolean isFull(){
-        for (int i = 0; i < numTrainCars.length; i++){
-            if (!numTrainCars[i].isFull()){
-                return false;
-            }
-        }
-        return true;
+        return trainCar.isFull();
     }
 
     public boolean isEmpty(){
-        for (int i = 0; i < numTrainCars.length; i++){
-            if (!numTrainCars[i].isEmpty()){
-                return false;
-            }
-        }
-        return true;
+        return trainCar.isEmpty();
     }
     public void addPassenger(Passenger n){
-        for (int i = 0; i < numTrainCars.length || !numTrainCars[i].isFull(); i++){
-            numTrainCars[i].addPassenger(n);
-        }
+        trainCar.addPassenger(n);
     }
 
     public Passenger removePassenger(){
         // Will have to change this probably
-        for (int i = 0; i < numTrainCars.length; i ++){
-            return numTrainCars[i].removePassenger(this.currentLocation);
-        }
-        return null;
+        return trainCar.removePassenger(this.currentLocation);
     }
 
 
@@ -60,21 +39,17 @@ public class Train {
         return startLocation;
     }
 
-    public void setCurrentLocation(int currentLocation) {
-        this.currentLocation = currentLocation;
+    public void setCurrentLocation(int current) {
+        this.currentLocation = current;
     }
 
-    public void setDirectionVector(int directionVector) {
-        this.directionVector = directionVector;
-    }
-
-    public TrainCar[] getNumTrainCars() {
-        return numTrainCars;
+    public void setDirectionVector(int vector) {
+        this.directionVector = vector;
     }
 
     private int directionVector;
     private int currentLocation;
     private int startLocation; // where the train starts after instantiation
 
-    private TrainCar[] numTrainCars;
+    private TrainCar trainCar;
 }

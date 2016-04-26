@@ -1,5 +1,3 @@
-import sun.plugin2.message.GetAppletMessage;
-
 /**
  * Created by timroels on 4/25/16.
  */
@@ -51,23 +49,41 @@ public class Passenger {
         return totaltriptime;
     }
     //time passanger is created at stop
+    public void setTotaltriptime(double totaltriptime) {
+        this.totaltriptime = totaltriptime;
+    }
+
+    public String getArrived() {
+        return arrived;
+    }
+
+    public void setArrived(String answer) {
+
+            this.arrived = answer;
+    }
+
+    String arrived;
     double arrivaltime;
     //time passanger arrives at stop and gets of traincar
     double destinationtime;
     //total trip time
-    private double totaltriptime = destinationtime - arrivaltime;
+    private double totaltriptime;
     //stop passanger was created to
     private int arrivalstop;
     //stop passanger is going to
     private int destinationstop;
     //shows direction passanger is heading and length of stop
-    private  int directionvector = arrivalstop - destinationstop;
+    private  int directionvector;
 
 
     public Passenger(double arrivalT, int arrivalS, int destinationS){
         arrivaltime = arrivalT;
         arrivalstop = arrivalS;
         destinationstop = destinationS;
+        directionvector = arrivalS - destinationS;
+        arrived = "N";
+        destinationtime = 1440;
+        totaltriptime = destinationtime - arrivaltime;
     }
 
 
