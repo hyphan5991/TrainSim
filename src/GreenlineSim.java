@@ -4,24 +4,33 @@
 import java.io.*;
 
 public class GreenlineSim {
+    public static int numberoftrains=0;
     static PQ agenda = new PQ();
     public static Q1 passengerArray = new Q1();
 
+    public GreenlineSim(int trains){
+        numberoftrains =trains;
+    }
+
     public static void main(String[] args) {
+        Q1 queue = new Q1;
         Stop.stopSetUp();
-        TrainArray first = new TrainArray();
-        Train firstTrain = new Train(3, 1, 1);
-        TrainArray.add(firstTrain);
-        TrainEvent firstTrainEvent = new TrainEvent(firstTrain);
-        Train secondTrain = new Train(3, 23, -1);
-        TrainArray.add(secondTrain);
-        TrainEvent secondTrainEvent = new TrainEvent(secondTrain);
-        Train thirdTrain = new Train(3, 12, 1);
-        TrainArray.add(thirdTrain);
-        TrainEvent thirdTrainEvent = new TrainEvent(thirdTrain);
-        Train fourthTrain = new Train(3, 12, -1);
-        TrainArray.add(fourthTrain);
-        TrainEvent fourthTrainEvent = new TrainEvent(fourthTrain);
+        for(int i=0;i<numberoftrains;i++){
+            Train purpletrain = new Train()
+        }
+//        TrainArray first = new TrainArray();
+//        Train firstTrain = new Train(3, 1, 1);
+//        TrainArray.add(firstTrain);
+//        TrainEvent firstTrainEvent = new TrainEvent(firstTrain);
+//        Train secondTrain = new Train(3, 23, -1);
+//        TrainArray.add(secondTrain);
+//        TrainEvent secondTrainEvent = new TrainEvent(secondTrain);
+//        Train thirdTrain = new Train(3, 12, 1);
+//        TrainArray.add(thirdTrain);
+//        TrainEvent thirdTrainEvent = new TrainEvent(thirdTrain);
+//        Train fourthTrain = new Train(3, 12, -1);
+//        TrainArray.add(fourthTrain);
+//        TrainEvent fourthTrainEvent = new TrainEvent(fourthTrain);
         DowntownPassengerMaker targetField = new DowntownPassengerMaker(1);
         DowntownPassengerMaker wareHouseD = new DowntownPassengerMaker(2);
         DowntownPassengerMaker nicolletM = new DowntownPassengerMaker(3);
@@ -45,7 +54,6 @@ public class GreenlineSim {
         DowntownPassengerMaker tenthS = new DowntownPassengerMaker(21);
         DowntownPassengerMaker centralS = new DowntownPassengerMaker(22);
         DowntownPassengerMaker unionD = new DowntownPassengerMaker(23);
-
 
         while (GreenlineSim.agenda.getCurrentTime() < 86400){
             Event removed = agenda.remove();
