@@ -22,6 +22,7 @@ public class GreenlineSim {
         Train fourthTrain = new Train(3, 12, -1);
         TrainArray.add(fourthTrain);
         TrainEvent fourthTrainEvent = new TrainEvent(fourthTrain);
+<<<<<<< Updated upstream
         DowntownPassengerMaker targetField = new DowntownPassengerMaker(1);
         DowntownPassengerMaker wareHouseD = new DowntownPassengerMaker(2);
         DowntownPassengerMaker nicolletM = new DowntownPassengerMaker(3);
@@ -45,6 +46,31 @@ public class GreenlineSim {
         DowntownPassengerMaker tenthS = new DowntownPassengerMaker(21);
         DowntownPassengerMaker centralS = new DowntownPassengerMaker(22);
         DowntownPassengerMaker unionD = new DowntownPassengerMaker(23);
+=======
+        DowntownPassengerMaker targetField = new DowntownPassengerMaker(0);
+        DowntownPassengerMaker wareHouseD = new DowntownPassengerMaker(1);
+        DowntownPassengerMaker nicolletM = new DowntownPassengerMaker(2);
+        DowntownPassengerMaker governmentP = new DowntownPassengerMaker(3);
+        DowntownPassengerMaker usBank = new DowntownPassengerMaker(4);
+        CampusPassengerMaker westBank = new CampusPassengerMaker(5);
+        CampusPassengerMaker eastBank = new CampusPassengerMaker(6);
+        CampusPassengerMaker stadiumV = new CampusPassengerMaker(7);
+        PassangerMaker prospectPark = new PassangerMaker(8);
+        PassangerMaker westgateS = new PassangerMaker(9);
+        PassangerMaker raymondA = new PassangerMaker(10);
+        PassangerMaker fairviewA = new PassangerMaker(11);
+        PassangerMaker snellingA = new PassangerMaker(12);
+        PassangerMaker hamlineA = new PassangerMaker(13);
+        PassangerMaker lexingtonP = new PassangerMaker(14);
+        PassangerMaker victoriaS = new PassangerMaker(15);
+        PassangerMaker daleS = new PassangerMaker(16);
+        PassangerMaker westernA = new PassangerMaker(17);
+        DowntownPassengerMaker capitolS = new DowntownPassengerMaker(18);
+        DowntownPassengerMaker robertS = new DowntownPassengerMaker(19);
+        DowntownPassengerMaker tenthS = new DowntownPassengerMaker(20);
+        DowntownPassengerMaker centralS = new DowntownPassengerMaker(21);
+        DowntownPassengerMaker unionD = new DowntownPassengerMaker(22);
+>>>>>>> Stashed changes
 
         while (GreenlineSim.agenda.getCurrentTime() < 86400){
             Event removed = agenda.remove();

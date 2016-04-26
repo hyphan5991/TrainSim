@@ -4,15 +4,24 @@ import java.util.Random;
  * Created by timroels on 4/25/16.
  */
 public class PassangerMaker implements Event {
+<<<<<<< Updated upstream
     private int arrivalStopNum;
+=======
+    public PassangerMaker(){}
+    private int stopNum;
+>>>>>>> Stashed changes
     public PassangerMaker(int stop){
         arrivalStopNum = stop;
     }
 
     public void run(){
+        GreenlineSim.agenda.add(new PassangerMaker(stopNum), 30);
         Random stopgenerater = new Random();
         int q = stopgenerater.nextInt(69);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         int destinationstop = -1;
 
         if(q<5){
@@ -86,6 +95,7 @@ public class PassangerMaker implements Event {
         }
         Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), arrivalStopNum, destinationstop);
         Stop.addPassenger(p);
+
 
     }
 }

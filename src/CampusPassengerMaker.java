@@ -11,12 +11,9 @@ public class CampusPassengerMaker implements Event {
 
     @Override
     public void run() {
+        GreenlineSim.agenda.add(new CampusPassengerMaker(stopNum), 30);
         Random stopgenerater = new Random();
-        int r = stopgenerater.nextInt(69);
         int q = stopgenerater.nextInt(69);
-        while(r==q){
-            q = stopgenerater.nextInt(69);
-        }
         int destinationstop = -1;
 
         if(q<5){
