@@ -16,6 +16,12 @@ public class Stop {
         else east.add(n);
     }
 
+    public Passenger removePassenger(Train n){
+        if (n.getDirectionVector() < 0){
+            return (Passenger) west.remove();
+        }
+        else return (Passenger) east.remove();
+    }
 
     public int getStopNumber() {
         return stopNumber;
