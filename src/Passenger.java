@@ -50,12 +50,17 @@ public class Passenger {
     public double getToaltriptime() {
         return totaltriptime;
     }
-
+    //time passanger is created at stop
     double arrivaltime;
+    //time passanger arrives at stop and gets of traincar
     double destinationtime;
+    //total trip time
     private double totaltriptime = destinationtime - arrivaltime;
+    //stop passanger was created to
     private int arrivalstop;
+    //stop passanger is going to
     private int destinationstop;
+    //shows direction passanger is heading and length of stop
     private  int directionvector = arrivalstop - destinationstop;
 
 
