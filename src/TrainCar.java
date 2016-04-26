@@ -19,10 +19,12 @@ public class TrainCar {
         }
     }
 
-    public static Passenger removePassenger(Stop n){
+    public static Passenger removePassenger(int n){
         //Note will have to iterate all the way through
-        int stopNumber = n.getStopNumber();
-        return (Passenger) trainlength[stopNumber - 1].remove();
+        if (trainlength[n - 1].length() > 0 ) {
+            return (Passenger) trainlength[n - 1].remove();
+        }
+        else return null;
     }
 
     public boolean isFull(){

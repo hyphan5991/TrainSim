@@ -34,7 +34,7 @@ public class Train {
     public Passenger removePassenger(Stop n){
         // Will have to change this probably
         for (int i = 0; i < numTrainCars.length; i ++){
-            return numTrainCars[i].removePassenger(n);
+            return numTrainCars[i].removePassenger(this.currentLocation);
         }
         return null;
     }
