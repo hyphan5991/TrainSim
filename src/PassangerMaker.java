@@ -85,7 +85,7 @@ public class PassangerMaker implements Event {
             destinationstop = 23;
         }
         Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), arrivalStopNum, destinationstop);
-
+        Stop.addPassenger(p);
 
     }
 }

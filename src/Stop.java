@@ -22,18 +22,10 @@ public class Stop {
     }
 
     public Passenger removePassenger(Train n){
-
+        int currentStop = n.getCurrentLocation();
         if (n.getDirectionVector() < 0){
-            return (Passenger) west.remove();
+            return (Passenger) stopArray[currentStop - 1][1].remove();
         }
-        else return (Passenger) east.remove();
+        else return (Passenger) stopArray[currentStop - 1][0].remove();
     }
-
-    public int getStopNumber() {
-        return stopNumber;
-    }
-
-    private int stopNumber;
-    private Q1 east;
-    private Q1 west;
 }
