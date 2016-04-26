@@ -1,15 +1,16 @@
 import java.util.Random;
 
 /**
- * Created by timroels on 4/25/16.
+ * Created by jakesnyder-hansen on 4/25/16.
  */
-public class PassangerMaker implements Event {
+public class DowntownPassengerMaker implements Event {
     private int stopNum;
-    public PassangerMaker(int stop){
+    public DowntownPassengerMaker(int stop){
         stopNum = stop;
     }
 
-    public void run(){
+    @Override
+    public void run() {
         Random stopgenerater = new Random();
         int r = stopgenerater.nextInt(69);
         int q = stopgenerater.nextInt(69);
@@ -88,7 +89,6 @@ public class PassangerMaker implements Event {
             destinationstop = 23;
         }
         Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), stopNum, destinationstop);
-
 
     }
 }

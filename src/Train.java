@@ -4,9 +4,9 @@
 public class Train {
 
     public Train(int numCars, int start, int vector){
-        startLocation = start + 1;
+        startLocation = start - 1;
         directionVector = vector;
-        currentLocation = start + 1;
+        currentLocation = start - 1;
 
 
         numTrainCars = new TrainCar[numCars];
@@ -54,6 +54,10 @@ public class Train {
 
     public void setCurrentLocation(int currentLocation) {
         this.currentLocation = currentLocation;
+    }
+
+    public void setDirectionVector(int directionVector) {
+        this.directionVector = directionVector;
     }
 
     private int directionVector;

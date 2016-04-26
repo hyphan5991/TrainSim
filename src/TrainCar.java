@@ -11,7 +11,7 @@ public class TrainCar {
         count = 0;
     }
 
-    public void addPassenger(Passenger n){
+    public static void addPassenger(Passenger n){
         if (count < 50) {
             int stop = n.getDestinationstop();
             trainlength[stop - 1].add(n);
@@ -19,7 +19,7 @@ public class TrainCar {
         }
     }
 
-    public Passenger removePassenger(Stop n){
+    public static Passenger removePassenger(Stop n){
         //Note will have to iterate all the way through
         int stopNumber = n.getStopNumber();
         return (Passenger) trainlength[stopNumber - 1].remove();
@@ -32,6 +32,6 @@ public class TrainCar {
         else return true;
     }
 
-    private int count;
-    private Q1[] trainlength;
+    private static int count;
+    private static Q1[] trainlength;
 }
