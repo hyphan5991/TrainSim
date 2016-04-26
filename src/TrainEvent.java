@@ -25,11 +25,14 @@ public class TrainEvent implements Event {
         if (!p.isEmpty()){
             Passenger removed = p.removePassenger();
             if (removed != null){
+                removed.setDestinationtime(GreenlineSim.agenda.getCurrentTime());
                 GreenlineSim.passengerArray.add(removed);
             }
             removecount++;
             while (removed != null){
+                removed = p.removePassenger();
                 if (removed != null){
+                    removed.setDestinationtime(GreenlineSim.agenda.getCurrentTime());
                     GreenlineSim.passengerArray.add(removed);
                     removecount++;
                 }
