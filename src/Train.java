@@ -16,6 +16,15 @@ public class Train {
 
     }
 
+    public boolean isFull(){
+        for (int i = 0; i < numTrainCars.length; i++){
+            if (!numTrainCars[i].isFull()){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void addPassenger(Passenger n){
         for (int i = 0; i < numTrainCars.length || !numTrainCars[i].isFull(); i++){
             numTrainCars[i].addPassenger(n);
@@ -39,17 +48,16 @@ public class Train {
         return currentLocation;
     }
 
-    public int getPreviousLocation() {
-        return previousLocation;
-    }
-
     public int getStartLocation() {
         return startLocation;
     }
 
+    public void setCurrentLocation(int currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
     private int directionVector;
     private int currentLocation;
-    private int previousLocation;
     private int startLocation; // where the train starts after instantiation
     private TrainCar[] numTrainCars;
 }
