@@ -3,10 +3,13 @@
  */
 public class Train {
 
-    public Train(int n, int m){
-        startLocation = m;
+    public Train(int numCars, int start, int vector){
+        startLocation = start + 1;
+        directionVector = vector;
+        currentLocation = start + 1;
 
-        numTrainCars = new TrainCar[n];
+
+        numTrainCars = new TrainCar[numCars];
         for (int i = 0; i < numTrainCars.length; i++){
             numTrainCars[i] = new TrainCar();
         }
@@ -27,6 +30,26 @@ public class Train {
         return null;
     }
 
+
+    public int getDirectionVector() {
+        return directionVector;
+    }
+
+    public int getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public int getPreviousLocation() {
+        return previousLocation;
+    }
+
+    public int getStartLocation() {
+        return startLocation;
+    }
+
+    private int directionVector;
+    private int currentLocation;
+    private int previousLocation;
     private int startLocation; // where the train starts after instantiation
     private TrainCar[] numTrainCars;
 }
