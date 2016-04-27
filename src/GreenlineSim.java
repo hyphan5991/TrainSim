@@ -12,6 +12,7 @@ public class GreenlineSim {
     public static int numTrainsR = 23;
     public static int numCarsR = 3;
     public static int rushHourMultiplier;
+    public static Q1 TraintimeQ = new Q1();
     public static Train[] listofTrains = {new Train(numCarsR, 11, 1), new Train(numCarsR, 11, -1),
             new Train(numCarsR, 1, 1), new Train(numCarsR, 1, -1), new Train(numCarsR, 23, 1),
             new Train(numCarsR, 23, -1), new Train(numCarsR, 6, -1), new Train(numCarsR, 6, 1),
