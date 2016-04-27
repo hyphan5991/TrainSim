@@ -231,14 +231,14 @@ public class GreenlineSim {
         } catch (Exception e) {
             return false;
         }
-        p.println("NumTrains NumCars Passenger ArrivalTime DestinationTime TotalTime ArrivalStop " +
-                "DestinationStop DirectionVector");
+        p.println("NumTrains, NumCars, Passenger, ArrivalTime, DestinationTime, TotalTime, ArrivalStop, " +
+                "DestinationStop, DirectionVector");
         int i = 1;
         while (passengerArray.length() != 0) {
             Passenger t = (Passenger) passengerArray.remove();
-            p.println(numTrainsR + " " + numCarsR + " " + i + " " + t.getArrived() + " " + t.getArrivaltime() + " "
-                    + t.getDestinationtime() + " " + t.getToaltriptime() + " " + t.getArrivalstop() + " "
-                    + t.getDestinationstop() + " " + t.getDirectionvector() + "\n");
+            p.println(numTrainsR + " " + numCarsR + ", " + i + ", " + t.getArrived() + ", " + t.getArrivaltime() + ", "
+                    + t.getDestinationtime() + ", " + t.getToaltriptime() + ", " + t.getArrivalstop() + ", "
+                    + t.getDestinationstop() + ", " + t.getDirectionvector());
             i++;
         }
         p.close();
