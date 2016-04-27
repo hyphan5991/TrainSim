@@ -39,7 +39,7 @@ public class TrainEvent implements Event {
                 }
             }
         }
-
+        GreenlineSim.served += removeCount;
         Passenger added = Stop.removePassenger(p);
         if (added != null){
             p.addPassenger(added);
@@ -55,7 +55,12 @@ public class TrainEvent implements Event {
 
         time = addCount + (2 * removeCount);
         boolean flag = TrainArray.move(p);
-        System.out.println(flag);
+        if(p.getCurrentLocation()==p.getStartLocation() && p.getStartdirectionVector()==p.getDirectionVector() && GreenlineSim.agenda.getCurrentTime() != 0 && flag){
+            GreenlineSim.traintimeQ.add(GreenlineSim.agenda.getCurrentTime());
+            GreenlineSim.traintimeQ.add(GreenlineSim.agenda.getCurrentTime() - p.getLasttimeatstart());
+            GreenlineSim.traintimeQ.add(p.getLasttimeatstart());
+            p.setLasttimeatstart(GreenlineSim.agenda.getCurrentTime());
+        }
         if (flag){
             if (15 > time) {
                 GreenlineSim.agenda.add(this, (0.25 + 3));

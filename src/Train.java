@@ -8,6 +8,9 @@ public class Train {
         directionVector = vector;
         currentLocation = start - 1;
         trainCar = new TrainCar(numCars);
+        startdirectionVector = vector;
+        lasttimeatstart = 0;
+
     }
 
     public boolean isFull(){
@@ -47,9 +50,30 @@ public class Train {
         this.directionVector = vector;
     }
 
+    public int getStartdirectionVector() {
+        return startdirectionVector;
+    }
+
+    public void setStartdirectionVector(int startdirectionVector) {
+        this.startdirectionVector = startdirectionVector;
+    }
+    public double getLasttimeatstart() {
+        return lasttimeatstart;
+    }
+
+    public void setLasttimeatstart(double lasttimeatStart) {
+        lasttimeatstart = lasttimeatStart;
+    }
+
+
     private int directionVector;
     private int currentLocation;
     private int startLocation; // where the train starts after instantiation
 
+    private int startdirectionVector;
+
+    private double lasttimeatstart;
     private TrainCar trainCar;
+
+
 }
