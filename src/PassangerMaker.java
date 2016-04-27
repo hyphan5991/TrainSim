@@ -115,7 +115,7 @@ public class PassangerMaker implements Event {
         Stop.addPassenger(p);
         GreenlineSim.passengerArray.add(p);
 
-        GreenlineSim.agenda.add(this, (1 / GreenlineSim.frequency) + (arrivalMod * (1 / GreenlineSim.frequency)));
+        GreenlineSim.agenda.add(this, (1 / GreenlineSim.rushHourMultiplier) + (arrivalMod * (1 / GreenlineSim.rushHourMultiplier)));
 
     }
 }

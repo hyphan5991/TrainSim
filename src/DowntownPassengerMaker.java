@@ -12,6 +12,31 @@ public class DowntownPassengerMaker implements Event {
     @Override
     public void run() {
 
+        int r = (int) (Math.random() * 100);
+        r++;
+        double arrivalMod = 0;
+        if(r <= 10 && r > 0){
+            arrivalMod = .75;
+        }
+        if(r <= 25 && r > 10){
+            arrivalMod = .50;
+        }
+        if(r <= 45 && r > 25){
+            arrivalMod = .2;
+        }
+        if(r <= 55 && r > 45){
+            arrivalMod = 0;
+        }
+        if(r <= 75 && r > 55){
+            arrivalMod = -.2;
+        }
+        if(r <= 90 && r > 75){
+            arrivalMod = -.5;
+        }
+        if (r <= 100 && r >90){
+            arrivalMod = -.75;
+        }
+
         int q = (int) (Math.random() * 69);
         q ++;
         System.out.println(q);
@@ -88,6 +113,6 @@ public class DowntownPassengerMaker implements Event {
         }
         Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), stopNum, destinationstop);
         GreenlineSim.passengerArray.add(p);
-        GreenlineSim.agenda.add(this, 0.5);
+        GreenlineSim.agenda.add(this, (1 / GreenlineSim.rushHourMultiplier) + (arrivalMod * (1 / GreenlineSim.rushHourMultiplier)));
     }
 }
