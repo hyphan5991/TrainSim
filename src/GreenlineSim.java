@@ -10,9 +10,7 @@ public class GreenlineSim {
     public static Q1 passengerArray = new Q1();
     public static int numTrainsR = 23;
     public static int numCarsR = 3;
-    public static int downtownfrequency;
-    public static int frequency;
-    public static int campusfrequency;
+    public static int rushHourMultiplier;
     public static Train[] listofTrains = {new Train(numCarsR, 11, 1), new Train(numCarsR, 11, -1),
             new Train(numCarsR, 1, 1), new Train(numCarsR, 1, -1), new Train(numCarsR, 23, 1),
             new Train(numCarsR, 23, -1), new Train(numCarsR, 6, -1), new Train(numCarsR, 6, 1),
@@ -169,51 +167,51 @@ public class GreenlineSim {
             i++;
         }
 
-        DowntownPassengerMaker targetField = new DowntownPassengerMaker(1,downtownfrequency);
+        DowntownPassengerMaker targetField = new DowntownPassengerMaker(1);
         agenda.add(targetField, 0);
-        DowntownPassengerMaker wareHouseD = new DowntownPassengerMaker(2,downtownfrequency);
+        DowntownPassengerMaker wareHouseD = new DowntownPassengerMaker(2);
         agenda.add(wareHouseD, 0);
-        DowntownPassengerMaker nicolletM = new DowntownPassengerMaker(3,downtownfrequency);
+        DowntownPassengerMaker nicolletM = new DowntownPassengerMaker(3);
         agenda.add(nicolletM, 0);
-        DowntownPassengerMaker governmentP = new DowntownPassengerMaker(4,downtownfrequency);
+        DowntownPassengerMaker governmentP = new DowntownPassengerMaker(4);
         agenda.add(governmentP, 0);
-        DowntownPassengerMaker usBank = new DowntownPassengerMaker(5,downtownfrequency);
+        DowntownPassengerMaker usBank = new DowntownPassengerMaker(5);
         agenda.add(usBank, 0);
-        CampusPassengerMaker westBank = new CampusPassengerMaker(6,campusfrequency);
+        CampusPassengerMaker westBank = new CampusPassengerMaker(6);
         agenda.add(westBank, 0);
-        CampusPassengerMaker eastBank = new CampusPassengerMaker(7,campusfrequency);
+        CampusPassengerMaker eastBank = new CampusPassengerMaker(7);
         agenda.add(eastBank, 0);
-        CampusPassengerMaker stadiumV = new CampusPassengerMaker(8,campusfrequency);
+        CampusPassengerMaker stadiumV = new CampusPassengerMaker(8);
         agenda.add(stadiumV, 0);
-        PassangerMaker prospectPark = new PassangerMaker(9,frequency);
+        PassangerMaker prospectPark = new PassangerMaker(9);
         agenda.add(prospectPark, 0);
-        PassangerMaker westgateS = new PassangerMaker(10,frequency);
+        PassangerMaker westgateS = new PassangerMaker(10);
         agenda.add(westgateS, 0);
-        PassangerMaker raymondA = new PassangerMaker(11,frequency);
+        PassangerMaker raymondA = new PassangerMaker(11);
         agenda.add(raymondA, 0);
-        PassangerMaker fairviewA = new PassangerMaker(12,frequency);
+        PassangerMaker fairviewA = new PassangerMaker(12);
         agenda.add(fairviewA, 0);
-        PassangerMaker snellingA = new PassangerMaker(13,frequency);
+        PassangerMaker snellingA = new PassangerMaker(13);
         agenda.add(snellingA, 0);
-        PassangerMaker hamlineA = new PassangerMaker(14,frequency);
+        PassangerMaker hamlineA = new PassangerMaker(14);
         agenda.add(hamlineA, 0);
-        PassangerMaker lexingtonP = new PassangerMaker(15,frequency);
+        PassangerMaker lexingtonP = new PassangerMaker(15);
         agenda.add(lexingtonP, 0);
-        PassangerMaker victoriaS = new PassangerMaker(16,frequency);
+        PassangerMaker victoriaS = new PassangerMaker(16);
         agenda.add(victoriaS, 0);
-        PassangerMaker daleS = new PassangerMaker(17,frequency);
+        PassangerMaker daleS = new PassangerMaker(17);
         agenda.add(daleS, 0);
-        PassangerMaker westernA = new PassangerMaker(18,frequency);
+        PassangerMaker westernA = new PassangerMaker(18);
         agenda.add(westernA, 0);
-        DowntownPassengerMaker capitolS = new DowntownPassengerMaker(19,downtownfrequency);
+        DowntownPassengerMaker capitolS = new DowntownPassengerMaker(19);
         agenda.add(capitolS, 0);
-        DowntownPassengerMaker robertS = new DowntownPassengerMaker(20,downtownfrequency);
+        DowntownPassengerMaker robertS = new DowntownPassengerMaker(20);
         agenda.add(robertS, 0);
-        DowntownPassengerMaker tenthS = new DowntownPassengerMaker(21,downtownfrequency);
+        DowntownPassengerMaker tenthS = new DowntownPassengerMaker(21);
         agenda.add(tenthS, 0);
-        DowntownPassengerMaker centralS = new DowntownPassengerMaker(22,downtownfrequency);
+        DowntownPassengerMaker centralS = new DowntownPassengerMaker(22);
         agenda.add(centralS, 0);
-        DowntownPassengerMaker unionD = new DowntownPassengerMaker(23,downtownfrequency);
+        DowntownPassengerMaker unionD = new DowntownPassengerMaker(23);
         agenda.add(unionD, 0);
 
 
