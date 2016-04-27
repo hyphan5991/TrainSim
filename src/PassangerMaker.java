@@ -38,7 +38,6 @@ public class PassangerMaker implements Event {
 
         int q = (int) (Math.random() * 69);
         q ++;
-        System.out.println(q);
 
         int destinationstop = -1;
 

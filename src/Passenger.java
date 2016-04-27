@@ -82,7 +82,7 @@ public class Passenger {
         destinationstop = destinationS;
         directionvector = arrivalS - destinationS;
         arrived = "N";
-        destinationtime = 1440;
+        destinationtime = 960;
         totaltriptime = destinationtime - arrivaltime;
     }
 

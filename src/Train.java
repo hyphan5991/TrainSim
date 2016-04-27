@@ -9,6 +9,7 @@ public class Train {
         currentLocation = start - 1;
         trainCar = new TrainCar(numCars);
         startdirectionVector = vector;
+        lasttimeatstart = 0;
 
     }
 
@@ -57,11 +58,11 @@ public class Train {
         this.startdirectionVector = startdirectionVector;
     }
     public double getLasttimeatstart() {
-        return Lasttimeatstart;
+        return lasttimeatstart;
     }
 
-    public void setLasttimeatstart(double lasttimeatstart) {
-        Lasttimeatstart = lasttimeatstart;
+    public void setLasttimeatstart(double lasttimeatStart) {
+        lasttimeatstart = lasttimeatStart;
     }
 
 
@@ -71,7 +72,7 @@ public class Train {
 
     private int startdirectionVector;
 
-   private double Lasttimeatstart =0;
+    private double lasttimeatstart;
     private TrainCar trainCar;
 
 

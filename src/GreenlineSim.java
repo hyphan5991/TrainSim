@@ -10,9 +10,10 @@ public class GreenlineSim {
     public static Q1 passengerArray = new Q1();
     public static Q1 lineLengthData = new Q1();
     public static int numTrainsR = 23;
-    public static int numCarsR = 3;
-    public static int rushHourMultiplier;
-    public static Q1 TraintimeQ = new Q1();
+    public static int numCarsR = 2;
+    public static double rushHourMultiplier = 1;
+    public static Q1 traintimeQ = new Q1();
+    public static int served = 0;
     public static Train[] listofTrains = {new Train(numCarsR, 11, 1), new Train(numCarsR, 11, -1),
             new Train(numCarsR, 1, 1), new Train(numCarsR, 1, -1), new Train(numCarsR, 23, 1),
             new Train(numCarsR, 23, -1), new Train(numCarsR, 6, -1), new Train(numCarsR, 6, 1),
@@ -91,16 +92,19 @@ public class GreenlineSim {
         agenda.add(unionD, 0);
         LineLengthEvent lenData = new LineLengthEvent();
         agenda.add(lenData, 0);
+        RushhourEvent newRush = new RushhourEvent();
+        agenda.add(newRush, 60);
 
 
-        while (GreenlineSim.agenda.getCurrentTime() < 1440){
+        while (GreenlineSim.agenda.getCurrentTime() < 960){
             Event removed = agenda.remove();
-            System.out.println(removed.toString());
             removed.run();
         }
-
+        System.out.println("passengers: " + passengerArray.length());
         GreenlineSim.writeFileOne("dataFile");
         GreenlineSim.writeFileTwo("dataFile2");
+        GreenlineSim.writeFileThree("dataFile3");
+        System.out.println("served: " + served);
 
     }
 
@@ -134,10 +138,30 @@ public class GreenlineSim {
         }
         p.println("Stop#, East, West");
         int i = 1;
-        while (passengerArray.length() != 0) {
+        while (lineLengthData.length() != 0) {
             int east = (Integer) lineLengthData.remove();
             int west = (Integer) lineLengthData.remove();
             p.println(i + ", " + east + ", " + west);
+            i++;
+        }
+        p.close();
+        return true;
+    }
+
+    public static boolean writeFileThree(String fileName) {
+        PrintWriter p = null;
+        try {
+            p = new PrintWriter(new File(fileName));
+        } catch (Exception e) {
+            return false;
+        }
+        p.println("Loop#, CurrentTime, LoopLapTime, lastLapTime");
+        int i = 1;
+        while (traintimeQ.length() != 0) {
+            double current = (Double) traintimeQ.remove();
+            double loop = (Double) traintimeQ.remove();
+            double last = (Double) traintimeQ.remove();
+            p.println(i + ", " + current + ", " + loop + ", " + last);
             i++;
         }
         p.close();

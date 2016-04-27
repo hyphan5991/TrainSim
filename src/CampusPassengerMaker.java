@@ -39,7 +39,6 @@ public class CampusPassengerMaker implements Event {
 
         int q = (int) (Math.random() * 69);
         q ++;
-        System.out.println(q);
         int destinationstop = -1;
 
         if(q <= 5 && q >= 1){
@@ -112,6 +111,7 @@ public class CampusPassengerMaker implements Event {
             destinationstop = 23;
         }
         Passenger p = new Passenger(GreenlineSim.agenda.getCurrentTime(), stopNum, destinationstop);
+        Stop.addPassenger(p);
         GreenlineSim.passengerArray.add(p);
         GreenlineSim.agenda.add(this, (1 / GreenlineSim.rushHourMultiplier) + (arrivalMod * (1 / GreenlineSim.rushHourMultiplier)));
     }
