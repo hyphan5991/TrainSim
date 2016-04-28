@@ -1,7 +1,7 @@
 // Stack1.java
 // Simple Stack interface is implemented using a linked list
 // The linked list used is a simple node class called N.  (See N.java)
-
+//from lecture
 public class Stack1 implements Stack {
     private N start = null;
     // constructor

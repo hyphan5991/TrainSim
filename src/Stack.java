@@ -1,6 +1,6 @@
 // Stack.java
 // Stack Interface
-
+//from lecture
 public interface Stack {
 
 // Interface for a Stack
